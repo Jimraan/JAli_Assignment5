@@ -20,7 +20,7 @@ interface CanFly {
 }
 
 class ActionCharacter {
-	public void fight() {System.out.println(" fight an Action Char");}
+	public void fight() {System.out.println("We all fight as an ActionChar");}
 }
 
 class Superman extends ActionCharacter implements CanFight, CanFly, CanSwim, CanClimb {
@@ -50,11 +50,29 @@ public class Action {
 	public static void w(ActionCharacter x) { x.fight(); }
 	public static void main(String[] args) {
 		Superman h = new Superman();
+		MrA a = new MrA();
+		ActionCharacter c = new ActionCharacter();
+		
 		System.out.println("I am " + h.name + " I can do the following:" );
 		t(h); // Treat it as a CanFight
 		s(h); // Treat is as a CanSwim
 		v(h); // Treat it as a CanFly
 		c(h); // Treat it as a CanClimb
-	
+		w(c); // Treat it as an ActionCharacter
+		
+		System.out.println("--------------");
+		
+		t(a); // Treat it as a CanFight
+		s(a); // Treat is as a CanSwim
+		v(a); // Treat it as a CanFly
+		c(a); // Treat it as a CanClimb
+		w(c); // Treat it as an ActionCharacter
+		
+		/*The fight() method in the interface CanFight overrides the
+		 *  fight() method in the ActionCharacter class. To access 
+		 *  ActionCharacter’s method, you must use an ActionCharacter 
+		 *  object, as it does not implement the CanFight interface. 
+		 *  Superman cannot use ActionCharacter’s fight method because 
+		 *  it implements the CanFight interface.*/
 	}
 }
